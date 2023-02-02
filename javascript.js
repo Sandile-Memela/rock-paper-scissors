@@ -29,10 +29,10 @@ function playRound(playerSelection, computerSelection) {
 
 // play a 5 round game that keeps score and reports a winner or loser at the end.
 function game() {
-    const playerSelection = "rock";
     let computerWin = 0;
     let playerWin = 0;
     for (let i = 1; i <= 5; i++) {
+        let playerSelection = prompt("Player Selection: Rock, Paper or Scissors?");
         let result = playRound(playerSelection, getComputerChoice());
         if (result === "computer") computerWin += 1;
         else if (result === "player") playerWin += 1;
