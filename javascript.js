@@ -17,18 +17,34 @@ function playRound(playerSelection, computerSelection) {
     if ((cleanComputerSelection === 'Rock' && cleanPlayerSelection === 'Scissors') || 
         (cleanComputerSelection === 'Scissors' && cleanPlayerSelection === 'Paper') ||
         (cleanComputerSelection === 'Paper' && cleanPlayerSelection === 'Rock')) {
-        return `You Lose! ${cleanComputerSelection} beats ${cleanPlayerSelection}.`;
+        return "computer";
     } else if ((cleanPlayerSelection === 'Rock' && cleanComputerSelection === 'Scissors') || 
                 (cleanPlayerSelection === 'Scissors' && cleanComputerSelection === 'Paper') ||
                 (cleanPlayerSelection === 'Paper' && cleanComputerSelection === 'Rock')) {
-        return `You Win! ${cleanPlayerSelection} beats ${cleanComputerSelection}.`;
+        return "player";
     } else {
-        return `Tie! ${cleanPlayerSelection} ties ${cleanComputerSelection}.`;
+        return "tie";
     }
 }
 
-for (let i = 1; i <= 30; i++) {
+// play a 5 round game that keeps score and reports a winner or loser at the end.
+function game() {
     const playerSelection = "rock";
-    const computerSelection = getComputerChoice();
-    console.log(i, playRound(playerSelection, computerSelection));
+    let computerWin = 0;
+    let playerWin = 0;
+    for (let i = 1; i <= 5; i++) {
+        let result = playRound(playerSelection, getComputerChoice());
+        if (result === "computer") computerWin += 1;
+        else if (result === "player") playerWin += 1;
+        console.log(i, result);
+    }
+    if (computerWin === playerWin) {
+        console.log("Tie!");
+    } else if (computerWin > playerWin) {
+        console.log("Computer Wins!");
+    } else if (computerWin < playerWin) {
+        console.log("Player Wins!");
+    }
 }
+
+game();
