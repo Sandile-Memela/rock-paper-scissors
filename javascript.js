@@ -1,4 +1,4 @@
-// randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
+// randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if (choice === 0) {
@@ -10,7 +10,7 @@ function getComputerChoice() {
     }
 }
 
-// playerSelection and computerSelection, return a string that declares the winner of the round like so: "You Lose! Paper beats Rock"
+// playerSelection and computerSelection, return a string that declares the winner of the round.
 function playRound(playerSelection, computerSelection) {
     let cleanPlayerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     let cleanComputerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase();
