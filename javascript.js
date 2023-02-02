@@ -19,8 +19,8 @@ function playRound(playerSelection, computerSelection) {
         (cleanComputerSelection === 'Paper' && cleanPlayerSelection === 'Rock')) {
         return "computer";
     } else if ((cleanPlayerSelection === 'Rock' && cleanComputerSelection === 'Scissors') || 
-                (cleanPlayerSelection === 'Scissors' && cleanComputerSelection === 'Paper') ||
-                (cleanPlayerSelection === 'Paper' && cleanComputerSelection === 'Rock')) {
+        (cleanPlayerSelection === 'Scissors' && cleanComputerSelection === 'Paper') ||
+        (cleanPlayerSelection === 'Paper' && cleanComputerSelection === 'Rock')) {
         return "player";
     } else {
         return "tie";
