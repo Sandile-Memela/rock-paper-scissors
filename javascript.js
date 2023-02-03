@@ -27,24 +27,53 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// play a 5 round game that keeps score and reports a winner or loser at the end.
-function game() {
-    let computerWin = 0;
-    let playerWin = 0;
-    for (let i = 1; i <= 5; i++) {
-        let playerSelection = prompt("Player Selection: Rock, Paper or Scissors?");
-        let result = playRound(playerSelection, getComputerChoice());
-        if (result === "computer") computerWin += 1;
-        else if (result === "player") playerWin += 1;
-        console.log(i, result);
+// keep score.
+let computerWin = 0;
+let playerWin = 0;
+
+// play a round game that keeps score and reports a winner or loser at the end.
+function game(playerSelection) {
+    if (computerWin === 5 || playerWin === 5) {
+        playerWin = 0;
+        computerWin = 0;
+        const h3Computer = document.querySelector('#computer');
+        h3Computer.textContent = "Computer: 0";
+        const h3Player = document.querySelector('#player');
+        h3Player.textContent = "Player: 0";
+        const h3Result = document.querySelector('#result');
+        h3Result.textContent = "";      
     }
-    if (computerWin === playerWin) {
-        console.log("Tie!");
-    } else if (computerWin > playerWin) {
-        console.log("Computer Wins!");
-    } else if (computerWin < playerWin) {
-        console.log("Player Wins!");
+    let result = playRound(playerSelection, getComputerChoice());
+    if (result === "computer") {
+        computerWin += 1;
+        const h3Computer = document.querySelector('#computer');
+        h3Computer.textContent = `Computer: ${computerWin}`;
+    } else if (result === "player") {
+        playerWin += 1;
+        const h3Player = document.querySelector('#player');
+        h3Player.textContent = `Player: ${playerWin}`;       
+    } else if (result === "tie") {
+        alert("Tie!");
+    }    
+    if (computerWin === 5 || playerWin === 5) {
+        if (computerWin === playerWin) {
+            const h3Result = document.querySelector('#result');
+            h3Result.textContent = "Tie!";
+        } else if (computerWin > playerWin) {
+            const h3Result = document.querySelector('#result');
+            h3Result.textContent = "Computer Wins!";        
+        } else if (computerWin < playerWin) {
+            const h3Result = document.querySelector('#result');
+            h3Result.textContent = "Player Wins!";        
+        }
     }
+
 }
 
-game();
+// add event listeners to buttons.
+const btn1 = document.querySelector('#rock');
+btn1.addEventListener('click', () => { game('rock') });
+const btn2 = document.querySelector('#paper');
+btn2.addEventListener('click', () => { game('paper') });
+const btn3 = document.querySelector('#scissors');
+btn3.addEventListener('click', () => { game('scissors') });

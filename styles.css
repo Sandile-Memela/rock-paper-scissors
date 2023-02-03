@@ -1,0 +1,33 @@
+#title, #action {
+    text-align: center;
+}
+
+#rock, #paper, #scissors {
+    width: 200px;
+    padding: 10px;
+}
+
+#rock:hover, #paper:hover, #scissors:hover { 
+    background-color: #eeeeee;
+}
+
+.button {
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+}
+
+#result {
+    color: blueviolet;
+}
+
+#score {
+    text-align: center;
+}

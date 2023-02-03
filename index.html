@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rock Paper Scissors</title>
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1 id="title">Rock, Paper, Scissors</h1>
+    <h3 id="action">To play, select rock, paper or scissors</h3>
+    <div id="buttons">
+        <div class="button"><input id="rock" type="image" src="images/rock.png" /><br />Rock</div>
+        <div class="button"><input id="paper" type="image" src="images/paper.png" /><br >Paper</div>
+        <div class="button"><input id="scissors" type="image" src="images/scissors.png" /><br />Scissors</div>
+    </div>
+    <div id="score"><h3 id="player">Player: 0</h3><h3 id="computer">Computer: 0</h3><h3 id="result"></h3></div>
     <script src="javascript.js"></script>
 </body>
 </html>
